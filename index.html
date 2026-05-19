@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orchid Homestay – Mechukha, Arunachal Pradesh</title>
+  <meta name="description" content="Orchid Homestay in Mechukha, Arunachal Pradesh. Experience the pristine beauty of the Himalayas with warm hospitality. Book your stay today."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep: #1a2e1e;
+      --green-mid: #2d4a32;
+      --green-soft: #4a7c59;
+      --cream: #f5f0e8;
+      --cream-warm: #ede5d0;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --text-dark: #1a1a1a;
+      --text-mid: #4a4a4a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(26, 46, 30, 0.92);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 400;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(160deg, var(--green-deep) 0%, var(--green-mid) 50%, #3d6b47 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,168,76,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 20%, rgba(255,255,255,0.04) 0%, transparent 60%);
+    }
+
+    .hero-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.65);
+      animation: fadeUp 1s 0.4s ease both;
+    }
+
+    .hero-cta {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+
+    .btn {
+      padding: 0.85rem 2.2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--green-deep);
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(245,240,232,0.4);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(245,240,232,0.4);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: fadeUp 1s 1s ease both;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--green-soft);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: var(--green-deep);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--green-soft); }
+
+    /* ABOUT */
+    .about { background: var(--cream); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-mid);
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--green-deep);
+      color: var(--cream);
+      padding: 3rem;
+      position: relative;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: 12px; right: -12px; bottom: 12px;
+      border: 1px solid var(--gold);
+      z-index: -1;
+    }
+
+    .about-card-stat {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .about-card-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.6);
+      margin-top: 0.3rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-card p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(245,240,232,0.8);
+      font-weight: 300;
+    }
+
+    /* ROOMS */
+    .rooms { background: var(--cream-warm); }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .room-card {
+      background: white;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .room-card:hover { transform: translateY(-6px); }
+
+    .room-icon {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .room-icon.deluxe { background: linear-gradient(135deg, var(--green-deep), var(--green-mid)); }
+    .room-icon.standard { background: linear-gradient(135deg, #2c4a3e, #4a7c59); }
+    .room-icon.family { background: linear-gradient(135deg, #3d5a2e, #5a7c3d); }
+
+    .room-info { padding: 1.5rem; }
+
+    .room-type {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--green-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .room-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      margin-bottom: 0.8rem;
+    }
+
+    .room-features {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .room-features li {
+      font-size: 0.72rem;
+      background: var(--cream);
+      color: var(--text-mid);
+      padding: 0.25rem 0.6rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* HIGHLIGHTS */
+    .highlights { background: var(--green-deep); }
+
+    .highlights .section-tag { color: var(--gold); }
+    .highlights .section-title { color: var(--cream); }
+    .highlights .section-title em { color: var(--gold-light); }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .highlight-item {
+      text-align: center;
+      padding: 2rem 1rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      transition: border-color 0.3s;
+    }
+
+    .highlight-item:hover { border-color: var(--gold); }
+
+    .highlight-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-desc {
+      font-size: 0.82rem;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* CONTACT */
+    .contact { background: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info { }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(26,46,30,0.1);
+    }
+
+    .contact-detail:last-child { border-bottom: none; }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-deep);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-soft);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--green-deep);
+      font-weight: 600;
+    }
+
+    .contact-value a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-value a:hover { color: var(--green-soft); }
+
+    .contact-map {
+      background: var(--green-mid);
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--cream);
+      text-align: center;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-map::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.1) 0%, transparent 70%);
+    }
+
+    .map-pin { font-size: 2.5rem; }
+
+    .map-location {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+
+    .map-plus {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      background: rgba(201,168,76,0.15);
+      padding: 0.4rem 1rem;
+    }
+
+    .map-link {
+      margin-top: 0.5rem;
+    }
+
+    .map-link a {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,168,76,0.4);
+      padding-bottom: 2px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-deep);
+      padding: 2.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.4);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-contact a {
+      font-size: 0.82rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 3rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .rooms-grid { grid-template-columns: 1fr; }
+      .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Orchid Homestay</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#highlights">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tag">Mechukha · Arunachal Pradesh · India</p>
+  <h1>Orchid<br><em>Homestay</em></h1>
+  <p class="hero-sub">Where the Himalayas meet warm hospitality</p>
+  <div class="hero-cta">
+    <a href="tel:7628011380" class="btn btn-primary">Book Now</a>
+    <a href="#about" class="btn btn-outline">Explore</a>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-tag">Our Story</p>
+        <h2 class="section-title">A home in the <em>heart of the valley</em></h2>
+        <p>Nestled in Barangang village in the breathtaking Mechukha valley of West Siang, Orchid Homestay offers an authentic retreat into one of Northeast India's most pristine landscapes.</p>
+        <p>Surrounded by the mighty Himalayas, lush forests, and the flowing Siyom river, we offer a rare combination of natural beauty and genuine Adi hospitality — a true home away from home.</p>
+        <p>Whether you're a trekker, a nature lover, or simply seeking peace away from the noise of the world, Orchid Homestay welcomes you with open arms.</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:1rem; display:inline-block;">Get In Touch</a>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-card-stat">6,000+</div>
+          <div class="about-card-label">Feet above sea level</div>
+          <p>Mechukha sits high in the Eastern Himalayas, offering crisp mountain air and stunning panoramic views year-round. A destination unlike any other in India.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms" id="rooms">
+  <div class="section-inner">
+    <p class="section-tag">Accommodation</p>
+    <h2 class="section-title">Comfortable rooms,<br><em>exceptional views</em></h2>
+    <div class="rooms-grid">
+      <div class="room-card">
+        <div class="room-icon deluxe">🏔️</div>
+        <div class="room-info">
+          <p class="room-type">Premium</p>
+          <p class="room-name">Deluxe Room</p>
+          <ul class="room-features">
+            <li>Mountain View</li>
+            <li>Double Bed</li>
+            <li>Attached Bath</li>
+            <li>Hot Water</li>
+          </ul>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-icon standard">🌿</div>
+        <div class="room-info">
+          <p class="room-type">Classic</p>
+          <p class="room-name">Standard Room</p>
+          <ul class="room-features">
+            <li>Garden View</li>
+            <li>Twin Beds</li>
+            <li>Attached Bath</li>
+            <li>Hot Water</li>
+          </ul>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-icon family">🏡</div>
+        <div class="room-info">
+          <p class="room-type">Spacious</p>
+          <p class="room-name">Family Suite</p>
+          <ul class="room-features">
+            <li>Valley View</li>
+            <li>Multiple Beds</li>
+            <li>Private Bath</li>
+            <li>Sitting Area</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights" id="highlights">
+  <div class="section-inner">
+    <p class="section-tag">The Experience</p>
+    <h2 class="section-title">Everything that makes<br><em>Mechukha magical</em></h2>
+    <div class="highlights-grid">
+      <div class="highlight-item">
+        <div class="highlight-icon">🏔️</div>
+        <p class="highlight-title">Himalayan Treks</p>
+        <p class="highlight-desc">Explore stunning trails through ancient forests and high-altitude meadows with local guides.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🛶</div>
+        <p class="highlight-title">River Activities</p>
+        <p class="highlight-desc">The Siyom river offers beautiful walks along the banks and serene views at every turn.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🍽️</div>
+        <p class="highlight-title">Local Cuisine</p>
+        <p class="highlight-desc">Authentic home-cooked Adi meals prepared with locally sourced ingredients and love.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🌸</div>
+        <p class="highlight-title">Nature & Culture</p>
+        <p class="highlight-desc">Visit the ancient Samten Choling monastery and discover the rich culture of the Adi people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <p class="section-tag">Reach Us</p>
+        <h2 class="section-title">Come stay with <em>us</em></h2>
+
+        <div class="contact-detail">
+          <div class="contact-icon">📞</div>
+          <div>
+            <p class="contact-label">Phone / WhatsApp</p>
+            <p class="contact-value"><a href="tel:+917628011380">+91 76280 11380</a></p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div>
+            <p class="contact-label">Address</p>
+            <p class="contact-value">Barangang, Mechukha<br>West Siang, Arunachal Pradesh – 791003</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <p class="contact-label">Check-in / Check-out</p>
+            <p class="contact-value">12:00 PM / 11:00 AM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-map">
+        <div class="map-pin">📍</div>
+        <p class="map-location">Mechukha, Arunachal Pradesh</p>
+        <p class="map-plus">H4WV+P Mechukha</p>
+        <div class="map-link">
+          <a href="https://maps.google.com/?q=Orchid+Homestay+Mechukha+Arunachal+Pradesh" target="_blank">Open in Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Orchid Homestay</div>
+  <div class="footer-copy">© 2026 Orchid Homestay · Mechukha, Arunachal Pradesh</div>
+  <div class="footer-contact"><a href="tel:+917628011380">+91 76280 11380</a></div>
+</footer>
+
+</body>
+</html>
